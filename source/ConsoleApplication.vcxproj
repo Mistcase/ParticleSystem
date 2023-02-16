@@ -39,10 +39,14 @@
     <ClCompile Include="glut\win32_winproc.c" />
     <ClCompile Include="glut\win32_x11.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="test.h" />
+    <ClInclude Include="Tools.h" />
+    <ClInclude Include="Types.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B3FFBEF9-7B94-488A-98BE-0079263B9E95}</ProjectGuid>

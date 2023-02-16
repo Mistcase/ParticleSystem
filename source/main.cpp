@@ -14,10 +14,13 @@
 
 int originalWindow = 0, currentWindow;
 
-void platform::drawPoint(float x, float y, float r, float g, float b, float a)
+namespace platform
 {
-	glColor4f(r, g, b, a);
-	glVertex2f(x, y);
+    void drawPoint(float x, float y, float r, float g, float b, float a)
+    {
+        glColor4f(r, g, b, a);
+        glVertex2f(x, y);
+    }
 }
 
 void display(void)
