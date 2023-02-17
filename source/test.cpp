@@ -12,6 +12,7 @@ static uint8_t ps[sizeof(ParticleSystem)];
 
 static std::atomic_int globalTime;
 static std::atomic_bool workerMustExit = false;
+static std::mutex mtx;
 
 void WorkerThread(void)
 {
@@ -26,6 +27,7 @@ void WorkerThread(void)
 
         if (delta > 0)
         {
+            std::lock_guard<std::mutex> lock { mtx };
             ps.update(delta / 1000.0f);
         }
 
@@ -65,5 +67,6 @@ void test::update(int dt)
 
 void test::on_click(int x, int y)
 {
+    std::lock_guard<std::mutex> lock { mtx };
     ps.emit({ static_cast<float>(x), test::SCREEN_HEIGHT - static_cast<float>(y) });
 }

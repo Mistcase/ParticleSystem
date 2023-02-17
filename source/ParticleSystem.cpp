@@ -3,12 +3,6 @@
 #include "Tools.h"
 #include <mutex>
 
-namespace
-{
-    std::mutex mtx;
-
-} // namespace
-
 namespace platform
 {
     void drawPoint(float x, float y, float r, float g, float b, float a);
@@ -99,7 +93,6 @@ void ParticleSystem::checkExplosions()
 
 void ParticleSystem::emit(const Vector2f& position)
 {
-    std::lock_guard<std::mutex> lock{ mtx };
     if (m_toEmit.capacity() > m_toEmit.size())
         m_toEmit.push_back(position);
 }
